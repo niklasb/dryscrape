@@ -1,3 +1,3 @@
 [submodule "webkit_server"]
 	path = webkit_server
-	url = git@github.com:niklasb/webkit-server.git
+	url = https://niklasb@github.com/niklasb/webkit-scraping.git
