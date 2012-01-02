@@ -16,7 +16,8 @@ from time import time
 
 import scraping
 
-SERVER_EXEC = os.path.join(os.path.dirname(__file__), "../../webkit_server/src/webkit_server")
+SERVER_EXEC = os.path.join(os.path.dirname(__file__),
+                           "../../webkit_server/src/webkit_server")
 
 class Server(object):
   """ Manages a Webkit server process. Implemented as a singleton,
