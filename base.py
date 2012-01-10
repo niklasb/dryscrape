@@ -1,12 +1,11 @@
 """
-Simple syntax sugar for web scraping drivers.
-
-Author: Niklas Baumstark (https://github.com/niklasb)
+Base classes for use in pyscrape.
 """
 
 import urlparse
 import time
 from lxml.cssselect import css_to_xpath
+
 
 class NodeSet(object):
   """ Base class for a collection of nodes that
@@ -49,6 +48,7 @@ class Node(NodeSet):
     return self.at_xpath("ancestor::form")
 
 
+# default timeout values
 DEFAULT_WAIT_INTERVAL = 0.5
 DEFAULT_WAIT_TIMEOUT = 10
 DEFAULT_AT_TIMEOUT = 1
@@ -114,8 +114,8 @@ class Driver(NodeSet):
 
 class Session(object):
   """ A web scraping session based on a driver
-  instance. Realizes the proxy pattern to pass
-  through messages it cannot handle by itself """
+  instance. Implements the proxy pattern to pass
+  unresolved method calls to the underlying driver. """
 
   def __init__(self,
                driver = None,
@@ -125,11 +125,11 @@ class Session(object):
     If the `driver` argument is None, the instance
     will call the `get_default_driver` method on itself
     to get a driver instance (should be implemented by
-    subclasses)
+    subclasses).
 
     If the `base_url` is present, relative URLs are
     completed with this URL base. If not, the `get_base_url`
-    method is called on itself to get the base URL """
+    method is called on itself to get the base URL. """
     self.driver = driver or self.get_default_driver()
 
     try:
@@ -139,6 +139,7 @@ class Session(object):
 
   # implement proxy pattern
   def __getattr__(self, attr):
+    """ Pass unresolved method calls to underlying driver """
     return getattr(self.driver, attr)
 
   def visit(self, url):
