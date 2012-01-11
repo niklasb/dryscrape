@@ -7,5 +7,6 @@ setup(name='pyscrape',
       author_email='niklas.baumstark@gmail.com',
       license='MIT',
       url='https://niklasb.github.com/pyscrape',
-      packages=['pyscrape', 'pyscrape.driver']
+      packages=['pyscrape', 'pyscrape.driver'],
+      requires=['webkit_server'],
       )
