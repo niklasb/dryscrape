@@ -1,14 +1,12 @@
 import os, sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__),
-                                '../lib'))
-import webkit_scraping
+from pyscrape               import Session
+from pyscrape.driver.webkit import Driver
 
 if __name__ == '__main__':
   # set up a web scraping session
-  driver = webkit_scraping.webkit_server.Driver()
-  sess = webkit_scraping.scraping.Session(driver = driver,
-                                          base_url = 'http://google.com')
+  sess = Session(driver   = Driver(),
+                 base_url = 'http://google.com')
 
   # we don't need images
   sess.set_attribute('auto_load_images', False)

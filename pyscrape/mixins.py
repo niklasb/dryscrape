@@ -1,16 +1,15 @@
 """
-Base classes for use in pyscrape.
+Mixins for use in pyscrape.
 """
 
-import urlparse
 import time
 from lxml.cssselect import css_to_xpath
 
 
-class NodeSet(object):
-  """ Base class for a collection of nodes that
-  provides an xpath method returning a collection
-  of Nodes """
+class SelectionMixin(object):
+  """ Mixin that adds different methods of node selection
+  to an object that provides an xpath method returning a collection
+  of matches """
 
   def css(self, css):
     """ Returns all nodes matching the given CSSv3
@@ -27,12 +26,18 @@ class NodeSet(object):
     expression or None """
     return self._first_or_none(self.xpath(xpath))
 
+  def form(self):
+    """ Returns the form wherein this node is contained
+    or None """
+    return self.at_xpath("ancestor::form")
+
   def _first_or_none(self, list):
     return list[0] if list else None
 
 
-class Node(NodeSet):
-  """ Base class for a DOM node in our scraping framework """
+class AttributeMixin(object):
+  """ Mixin that adds [] syntax to an object that supports
+  a `set_attr` and `get_attr` method. """
 
   def __getitem__(self, attr):
     """ Syntax sugar for accessing this node's attributes """
@@ -41,11 +46,6 @@ class Node(NodeSet):
   def __setitem__(self, attr, value):
     """ Syntax sugar for setting this node's attributes """
     self.set_attr(attr, value)
-
-  def form(self):
-    """ Returns the form wherein this node is contained
-    or None """
-    return self.at_xpath("ancestor::form")
 
 
 # default timeout values
@@ -56,8 +56,8 @@ DEFAULT_AT_TIMEOUT = 1
 class WaitTimeoutError(Exception):
   """ Raised when a wait times out """
 
-class Driver(NodeSet):
-  """ Base class for a scraping driver """
+class DriverMixin(SelectionMixin):
+  """ Mixin for a scraping driver """
 
   def wait_for(self,
                condition,
@@ -99,65 +99,13 @@ class Driver(NodeSet):
   def at_css(self, css, timeout = DEFAULT_AT_TIMEOUT, **kw):
     """ Returns the first node matching the given CSSv3
     expression or None if a timeout occurs """
-    return self.wait_for_safe(lambda: super(Driver, self).at_css(css),
+    return self.wait_for_safe(lambda: super(DriverMixin, self).at_css(css),
                               timeout = timeout,
                               **kw)
 
   def at_xpath(self, xpath, timeout = DEFAULT_AT_TIMEOUT, **kw):
     """ Returns the first node matching the given XPath 2.0
     expression or None if a timeout occurs """
-    orig = super(Driver, self).at_xpath
-    return self.wait_for_safe(lambda: super(Driver, self).at_xpath(xpath),
+    return self.wait_for_safe(lambda: super(DriverMixin, self).at_xpath(xpath),
                               timeout = timeout,
                               **kw)
-
-
-class Session(object):
-  """ A web scraping session based on a driver
-  instance. Implements the proxy pattern to pass
-  unresolved method calls to the underlying driver. """
-
-  def __init__(self,
-               driver = None,
-               base_url = None):
-    """ Initializes a session object.
-
-    If the `driver` argument is None, the instance
-    will call the `get_default_driver` method on itself
-    to get a driver instance (should be implemented by
-    subclasses).
-
-    If the `base_url` is present, relative URLs are
-    completed with this URL base. If not, the `get_base_url`
-    method is called on itself to get the base URL. """
-    self.driver = driver or self.get_default_driver()
-
-    try:
-      self.base_url = base_url or self.get_base_url()
-    except AttributeError:
-      self.base_url = None
-
-  # implement proxy pattern
-  def __getattr__(self, attr):
-    """ Pass unresolved method calls to underlying driver """
-    return getattr(self.driver, attr)
-
-  def visit(self, url):
-    """ Passes through the URL to the driver
-    after completing it using the instance's URL base. """
-    return self.driver.visit(self.complete_url(url))
-
-  def complete_url(self, url):
-    """ Completes a given URL with this
-    instances URL base """
-    if self.base_url:
-      return urlparse.urljoin(self.base_url, url)
-    else:
-      return url
-
-  def interact(self):
-    """ Drops the user into an interactive Python session
-    with the "sess" variable set to the current session
-    instance """
-    import code
-    code.interact(local={ 'sess' : self })
