@@ -25,7 +25,10 @@ class Mock(object):
         return Mock() if name not in ('__file__', '__path__') else '/dev/null'
 
 # mock some modules...
-MOCK_MODULES = ['lxml', 'webkit_server']
+MOCK_MODULES = ['lxml',
+                'lxml.cssselect',
+                'webkit_server',
+                ]
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
 
