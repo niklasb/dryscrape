@@ -13,6 +13,22 @@
 
 import sys, os
 
+class Mock(object):
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def __call__(self, *args, **kwargs):
+        return Mock()
+
+    @classmethod
+    def __getattr__(self, name):
+        return Mock() if name not in ('__file__', '__path__') else '/dev/null'
+
+# mock some modules...
+MOCK_MODULES = ['lxml', 'webkit_server']
+for mod_name in MOCK_MODULES:
+    sys.modules[mod_name] = Mock()
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
