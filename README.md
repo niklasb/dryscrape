@@ -17,3 +17,9 @@ to thoughtbot, inc. for building this excellent piece of software!
 
 Documentation can be found at 
 [http://readthedocs.org/docs/dryscrape/][dryscrape's ReadTheDocs page].
+
+# Contact, Bugs, Contributions
+
+If you have any problems with this software, don't hesitate to open an    
+issue on [Github](https://github.com/niklasb/dryscrape) or open a pull 
+request or write a mail to **niklas baumstark at Gmail**.
