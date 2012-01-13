@@ -1,5 +1,5 @@
 """
-Mixins for use in pyscrape.
+Mixins for use in pyscrape drivers.
 """
 
 import time
@@ -8,7 +8,7 @@ from lxml.cssselect import css_to_xpath
 
 class SelectionMixin(object):
   """ Mixin that adds different methods of node selection
-  to an object that provides an xpath method returning a collection
+  to an object that provides an ``xpath`` method returning a collection
   of matches """
 
   def css(self, css):
@@ -18,17 +18,17 @@ class SelectionMixin(object):
 
   def at_css(self, css):
     """ Returns the first node matching the given CSSv3
-    expression or None """
+    expression or ``None`` """
     return self._first_or_none(self.css(css))
 
   def at_xpath(self, xpath):
     """ Returns the first node matching the given XPath 2.0
-    expression or None """
+    expression or ``None`` """
     return self._first_or_none(self.xpath(xpath))
 
   def form(self):
     """ Returns the form wherein this node is contained
-    or None """
+    or ``None`` """
     return self.at_xpath("ancestor::form")
 
   def _first_or_none(self, list):
@@ -36,8 +36,8 @@ class SelectionMixin(object):
 
 
 class AttributeMixin(object):
-  """ Mixin that adds [] syntax to an object that supports
-  a `set_attr` and `get_attr` method. """
+  """ Mixin that adds ``[]`` access syntax sugar to an object that supports
+  a ``set_attr`` and ``get_attr`` method. """
 
   def __getitem__(self, attr):
     """ Syntax sugar for accessing this node's attributes """
@@ -63,7 +63,8 @@ class DriverMixin(SelectionMixin):
                condition,
                interval = DEFAULT_WAIT_INTERVAL,
                timeout  = DEFAULT_WAIT_TIMEOUT):
-    """ Wait until a condition holds """
+    """ Wait until a condition holds by checking it in regular intervals.
+    Raises ``WaitTimeoutError`` on timeout. """
 
     start = time.time()
 
@@ -85,7 +86,7 @@ class DriverMixin(SelectionMixin):
 
   def wait_for_safe(self, *args, **kw):
     """ Wait until a condition holds and return
-    None on timeout """
+    ``None`` on timeout. """
     try:
       return self.wait_for(*args, **kw)
     except WaitTimeoutError:
@@ -98,14 +99,14 @@ class DriverMixin(SelectionMixin):
 
   def at_css(self, css, timeout = DEFAULT_AT_TIMEOUT, **kw):
     """ Returns the first node matching the given CSSv3
-    expression or None if a timeout occurs """
+    expression or ``None`` if a timeout occurs """
     return self.wait_for_safe(lambda: super(DriverMixin, self).at_css(css),
                               timeout = timeout,
                               **kw)
 
   def at_xpath(self, xpath, timeout = DEFAULT_AT_TIMEOUT, **kw):
     """ Returns the first node matching the given XPath 2.0
-    expression or None if a timeout occurs """
+    expression or ``None`` if a timeout occurs """
     return self.wait_for_safe(lambda: super(DriverMixin, self).at_xpath(xpath),
                               timeout = timeout,
                               **kw)
