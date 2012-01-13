@@ -1,6 +1,6 @@
 # Overview
 
-Author: Niklas Baumstark
+**Author:** Niklas Baumstark
 
 dryscrape is a lightweight web scraping library for Python. It uses a 
 headless Webkit instance to evaluate Javascript on the visited pages. This 
