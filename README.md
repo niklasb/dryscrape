@@ -10,10 +10,8 @@ Facebook.
 
 It is built on the shoulders of
 [capybara-webkit](https://github.com/thoughtbot/capybara-webkit)'s 
-[webkit-server](https://github.com/niklasb/webkit-server). 
-
-A big thanks goes to thoughtbot, inc. for this excellent piece of 
-software!
+[webkit-server](https://github.com/niklasb/webkit-server). A big thanks goes 
+to thoughtbot, inc. for building this excellent piece of software!
 
 # Installation, Usage, API Docs
 
