@@ -7,12 +7,12 @@ enables painless scraping of plain web pages as well as Javascript-heavy
 “Web 2.0” applications like
 Facebook.
 
-It is built on the shoulders of
-[capybara-webkit](https://github.com/thoughtbot/capybara-webkit)'s
-[webkit-server](https://github.com/niklasb/webkit-server).
+It is built on the shoulders of capybara-webkit_'s webkit-server_.
+A big thanks goes to thoughtbot, inc. for building this excellent
+piece of software!
 
-A big thanks goes to thoughtbot, inc. for this excellent piece of
-software!
+.. _capybara-webkit: https://github.com/thoughtbot/capybara-webkit
+.. _webkit-server: https://github.com/niklasb/webkit-server
 
 Contents
 ----------
