@@ -5,25 +5,25 @@ This documentation also contains the API docs for the ``webkit_server``
 module, for convenience (and because I am too lazy to set up dedicated docs
 for it).
 
-``pyscrape.session``
+:mod:`pyscrape.session`
 -------------------------------
 
 .. automodule:: pyscrape.session
    :members:
 
-``pyscrape.mixins``
+:mod:`pyscrape.mixins`
 -------------------------------
 
 .. automodule:: pyscrape.mixins
    :members:
 
-``pyscrape.driver.webkit``
+:mod:`pyscrape.driver.webkit`
 -------------------------------
 
 .. automodule:: pyscrape.driver.webkit
    :members:
 
-``webkit_server``
+:mod:`webkit_server`
 -------------------------------
 
 .. automodule:: webkit_server
