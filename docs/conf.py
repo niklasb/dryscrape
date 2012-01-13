@@ -22,7 +22,12 @@ class Mock(object):
 
     @classmethod
     def __getattr__(self, name):
-        return Mock() if name not in ('__file__', '__path__') else '/dev/null'
+        if name in ('__file__', '__path__'):
+            return '/dev/null'
+        elif name[0].upper() == name[0]:
+            return type(name, (), {})
+        else:
+            return Mock()
 
 # mock some modules...
 MOCK_MODULES = ['lxml',
