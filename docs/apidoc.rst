@@ -23,3 +23,8 @@ for it).
 .. automodule:: pyscrape.driver.webkit
    :members:
 
+``webkit_server``
+-------------------------------
+
+.. automodule:: webkit_server
+   :members:
