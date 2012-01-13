@@ -1,22 +1,21 @@
-import os, sys
-
 from pyscrape               import Session
 from pyscrape.driver.webkit import Driver
 
-if __name__ == '__main__':
-  # set up a web scraping session
-  sess = Session(driver   = Driver(),
-                 base_url = 'http://google.com')
+search_term = 'pyscrape'
 
-  # we don't need images
-  sess.set_attribute('auto_load_images', False)
+# set up a web scraping session
+sess = Session(driver   = Driver(),
+               base_url = 'http://google.com')
 
-  # visit homepage and search for a term
-  sess.visit('/')
-  q = sess.at_xpath('//*[@name="q"]')
-  q.set(sys.argv[1])
-  q.form().submit()
+# we don't need images
+sess.set_attribute('auto_load_images', False)
 
-  # save a screenshot of the web page
-  sess.render('google.png')
-  print "Screenshot written to 'google.png'"
+# visit homepage and search for a term
+sess.visit('/')
+q = sess.at_xpath('//*[@name="q"]')
+q.set(search_term)
+q.form().submit()
+
+# save a screenshot of the web page
+sess.render('google.png')
+print "Screenshot written to 'google.png'"
