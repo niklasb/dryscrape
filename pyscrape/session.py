@@ -3,21 +3,20 @@ import urlparse
 class Session(object):
   """ A web scraping session based on a driver
   instance. Implements the proxy pattern to pass
-  unresolved method calls to the underlying driver. """
+  unresolved method calls to the underlying driver.
+
+  If the `driver` argument is None, the instance
+  will call the `get_default_driver` method on itself
+  to get a driver instance (should be implemented by
+  subclasses).
+
+  If the `base_url` is present, relative URLs are
+  completed with this URL base. If not, the `get_base_url`
+  method is called on itself to get the base URL. """
 
   def __init__(self,
                driver = None,
                base_url = None):
-    """ Initializes a session object.
-
-    If the `driver` argument is None, the instance
-    will call the `get_default_driver` method on itself
-    to get a driver instance (should be implemented by
-    subclasses).
-
-    If the `base_url` is present, relative URLs are
-    completed with this URL base. If not, the `get_base_url`
-    method is called on itself to get the base URL. """
     self.driver = driver or self.get_default_driver()
 
     try:
