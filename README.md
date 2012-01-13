@@ -16,7 +16,7 @@ to thoughtbot, inc. for building this excellent piece of software!
 # Installation, Usage, API Docs
 
 Documentation can be found at 
-[http://readthedocs.org/docs/dryscrape/](dryscrape's ReadTheDocs page).
+[dryscrape's ReadTheDocs page](http://readthedocs.org/docs/dryscrape/).
 
 # Contact, Bugs, Contributions
 
