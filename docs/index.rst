@@ -1,10 +1,18 @@
-Welcome to pyscrape's documentation!
+Welcome to dryscrape's documentation!
 ====================================
 
-pyscrape is a lightweight web scraping framework for Python.
-It uses a headless Webkit instance to evaluate Javascript on the
-visited pages. This enables scraping of Javascript-heavy "Web 2.0" pages like
+dryscrape is a lightweight web scraping library for Python. It uses a
+headless Webkit instance to evaluate Javascript on the visited pages. This
+enables painless scraping of plain web pages as well as Javascript-heavy
+“Web 2.0” applications like
 Facebook.
+
+It is built on the shoulders of
+[capybara-webkit](https://github.com/thoughtbot/capybara-webkit)'s
+[webkit-server](https://github.com/niklasb/webkit-server).
+
+A big thanks goes to thoughtbot, inc. for this excellent piece of
+software!
 
 Contents
 ----------

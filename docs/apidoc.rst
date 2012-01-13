@@ -8,27 +8,27 @@ for it).
 Overview
 ----------
 
-.. inheritance-diagram:: pyscrape.session
-                         pyscrape.mixins
-                         pyscrape.driver.webkit
+.. inheritance-diagram:: dryscrape.session
+                         dryscrape.mixins
+                         dryscrape.driver.webkit
                          webkit_server
 
-Module :mod:`pyscrape.session`
+Module :mod:`dryscrape.session`
 -------------------------------
 
-.. automodule:: pyscrape.session
+.. automodule:: dryscrape.session
    :members:
 
-Module :mod:`pyscrape.mixins`
+Module :mod:`dryscrape.mixins`
 -------------------------------
 
-.. automodule:: pyscrape.mixins
+.. automodule:: dryscrape.mixins
    :members:
 
-Module :mod:`pyscrape.driver.webkit`
+Module :mod:`dryscrape.driver.webkit`
 -------------------------------------
 
-.. automodule:: pyscrape.driver.webkit
+.. automodule:: dryscrape.driver.webkit
    :members:
 
 Module :mod:`webkit_server`
