@@ -5,25 +5,33 @@ This documentation also contains the API docs for the ``webkit_server``
 module, for convenience (and because I am too lazy to set up dedicated docs
 for it).
 
-:mod:`pyscrape.session`
+Overview
+----------
+
+.. inheritance-diagram:: pyscrape.session
+                         pyscrape.mixins
+                         pyscrape.driver.webkit
+                         webkit_server
+
+Module :mod:`pyscrape.session`
 -------------------------------
 
 .. automodule:: pyscrape.session
    :members:
 
-:mod:`pyscrape.mixins`
+Module :mod:`pyscrape.mixins`
 -------------------------------
 
 .. automodule:: pyscrape.mixins
    :members:
 
-:mod:`pyscrape.driver.webkit`
--------------------------------
+Module :mod:`pyscrape.driver.webkit`
+-------------------------------------
 
 .. automodule:: pyscrape.driver.webkit
    :members:
 
-:mod:`webkit_server`
+Module :mod:`webkit_server`
 -------------------------------
 
 .. automodule:: webkit_server

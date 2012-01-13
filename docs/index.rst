@@ -2,11 +2,12 @@ Welcome to pyscrape's documentation!
 ====================================
 
 pyscrape is a lightweight web scraping framework for Python.
-It internally uses a headless Webkit instance to evaluate Javascript on the
+It uses a headless Webkit instance to evaluate Javascript on the
 visited pages. This enables scraping of Javascript-heavy "Web 2.0" pages like
 Facebook.
 
-Contents:
+Contents
+----------
 
 .. toctree::
    :maxdepth: 2
