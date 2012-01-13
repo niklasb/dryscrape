@@ -30,7 +30,7 @@ class Mock(object):
             return Mock()
 
 # mock some modules...
-MOCK_MODULES = ['webkit_server']
+MOCK_MODULES = []
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
 
