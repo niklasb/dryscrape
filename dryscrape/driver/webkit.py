@@ -1,12 +1,12 @@
 """
-Headless Webkit driver for pyscrape. Wraps the ``webkit_server`` module.
+Headless Webkit driver for dryscrape. Wraps the ``webkit_server`` module.
 """
 
-import pyscrape.mixins
+import dryscrape.mixins
 import webkit_server
 
-class Node(webkit_server.Node, pyscrape.mixins.SelectionMixin,
-                               pyscrape.mixins.AttributeMixin):
+class Node(webkit_server.Node, dryscrape.mixins.SelectionMixin,
+                               dryscrape.mixins.AttributeMixin):
   """ node implementation wrapping a ``webkit_server``
   node. """
   def __init__(self, *args):
@@ -15,7 +15,7 @@ class Node(webkit_server.Node, pyscrape.mixins.SelectionMixin,
   def _create_node(self, id):
     return Node(self.driver, id)
 
-class Driver(webkit_server.Driver, pyscrape.mixins.DriverMixin):
+class Driver(webkit_server.Driver, dryscrape.mixins.DriverMixin):
   """ driver implementation wrapping a ``webkit_server``
   driver. """
   def __init__(self):

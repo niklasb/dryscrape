@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# pyscrape documentation build configuration file, created by
+# dryscrape documentation build configuration file, created by
 # sphinx-quickstart on Thu Jan 12 15:55:25 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -67,7 +67,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'pyscrape'
+project = u'dryscrape'
 copyright = u'2012, Niklas Baumstark'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -191,7 +191,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'pyscrapedoc'
+htmlhelp_basename = 'dryscrapedoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -205,7 +205,7 @@ htmlhelp_basename = 'pyscrapedoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'pyscrape.tex', u'pyscrape Documentation',
+  ('index', 'dryscrape.tex', u'dryscrape Documentation',
    u'Niklas Baumstark', 'manual'),
 ]
 
@@ -238,6 +238,6 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'pyscrape', u'pyscrape Documentation',
+    ('index', 'dryscrape', u'dryscrape Documentation',
      [u'Niklas Baumstark'], 1)
 ]

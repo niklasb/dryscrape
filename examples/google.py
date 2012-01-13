@@ -1,7 +1,7 @@
-from pyscrape               import Session
-from pyscrape.driver.webkit import Driver
+from dryscrape               import Session
+from dryscrape.driver.webkit import Driver
 
-search_term = 'pyscrape'
+search_term = 'dryscrape'
 
 # set up a web scraping session
 sess = Session(driver   = Driver(),

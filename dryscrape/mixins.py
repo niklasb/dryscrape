@@ -1,5 +1,5 @@
 """
-Mixins for use in pyscrape drivers.
+Mixins for use in dryscrape drivers.
 """
 
 import time
