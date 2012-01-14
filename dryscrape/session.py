@@ -42,9 +42,12 @@ class Session(object):
     else:
       return url
 
-  def interact(self):
+  def interact(self, local=None):
     """ Drops the user into an interactive Python session
-    with the "sess" variable set to the current session
-    instance """
+    with the ``sess`` variable set to the current session
+    instance. If a dict is supplied for the `local` parameter,
+    these names will also be available within the session. """
     import code
-    code.interact(local={ 'sess' : self })
+    local = dict(local) if local else {}
+    local.update(dict(sess=self))
+    code.interact(local=local)
