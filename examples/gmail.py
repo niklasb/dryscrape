@@ -60,7 +60,8 @@ send.click()
 
 # open the mail
 print "Reading the mail..."
-mail = sess.at_xpath('//*[normalize-space(text()) = "Note to self"]', timeout=10)
+mail = sess.at_xpath('//*[normalize-space(text()) = "Note to self"]',
+                     timeout=10)
 mail.click()
 
 # sleep a bit to leave the mail a chance to open.
