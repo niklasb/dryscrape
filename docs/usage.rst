@@ -16,3 +16,24 @@ then passes every method call it cannot resolve -- such as
 underlying driver.
 
 On my system and with a 16k downstream connection, this runs in under a second.
+
+A more complex example
+-------------------------
+
+There was nothing much special about the example above. Let's look at a more
+advanced example that actually works on a Javascript-only application: GMail.
+
+.. literalinclude:: /../examples/gmail.py
+
+This *just works*.
+
+There are some things to note about it, though:
+
+* :py:meth:`~dryscrape.mixins.DriverMixin.at_xpath` and
+  :py:meth:`~dryscrape.mixins.DriverMixin.at_css` take an optional
+  `timeout` argument that can be used to leave the application a bit of time
+  to load content
+* XPath_ is really useful, you should make yourself familiar with it. You can
+  also use CSS, however.
+
+.. _XPath: http://www.w3schools.com/xpath/
