@@ -21,7 +21,7 @@ this:
 
 ::
 
-  # pip -r requirements.txt
+  # pip install -r requirements.txt
 
 If you want, you can of course also install the dependencies manually.
 
