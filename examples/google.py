@@ -16,6 +16,10 @@ q = sess.at_xpath('//*[@name="q"]')
 q.set(search_term)
 q.form().submit()
 
+# extract all links
+for link in sess.xpath('//a[@href]'):
+  print link['href']
+
 # save a screenshot of the web page
 sess.render('google.png')
 print "Screenshot written to 'google.png'"

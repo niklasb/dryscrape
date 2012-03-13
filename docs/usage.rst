@@ -15,8 +15,6 @@ then passes every method call it cannot resolve -- such as
 :py:meth:`~webkit_server.CommandsMixin.visit`, in this case -- to the
 underlying driver.
 
-On my system and with a 16k downstream connection, this runs in under a second.
-
 A more complex example
 -------------------------
 
