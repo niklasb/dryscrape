@@ -40,8 +40,7 @@ class Session(object):
     return self.driver.visit(self.complete_url(url))
 
   def complete_url(self, url):
-    """ Completes a given URL with this
-    instances URL base """
+    """ Completes a given URL with this instance's URL base """
     if self.base_url:
       return urlparse.urljoin(self.base_url, url)
     else:
