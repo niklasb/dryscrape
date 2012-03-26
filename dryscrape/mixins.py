@@ -4,7 +4,7 @@ Mixins for use in dryscrape drivers.
 
 import time
 from lxml.cssselect import css_to_xpath
-
+import lxml.html
 
 class SelectionMixin(object):
   """ Mixin that adds different methods of node selection
@@ -48,6 +48,17 @@ class AttributeMixin(object):
     self.set_attr(attr, value)
 
 
+class HtmlParsingMixin(object):
+  """ Mixin that adds a ``document`` method to an object that supports a ``body``
+  method returning valid HTML. """
+
+  def document(self):
+    """ Parses the HTML returned by ``body`` and returns it as an lxml.html
+    document. If the driver supports live DOM manipulation (like webkit_server does),
+    changes performed on the returned document will not take effect. """
+    return lxml.html.document_fromstring(self.body())
+
+
 # default timeout values
 DEFAULT_WAIT_INTERVAL = 0.5
 DEFAULT_WAIT_TIMEOUT = 10
@@ -56,7 +67,7 @@ DEFAULT_AT_TIMEOUT = 1
 class WaitTimeoutError(Exception):
   """ Raised when a wait times out """
 
-class DriverMixin(SelectionMixin):
+class DriverMixin(SelectionMixin, HtmlParsingMixin):
   """ Mixin for a scraping driver """
 
   def wait_for(self,
