@@ -1,4 +1,5 @@
 import urlparse
+import dryscrape.driver.webkit
 
 class Session(object):
   """ A web scraping session based on a driver
@@ -23,6 +24,10 @@ class Session(object):
       self.base_url = base_url or self.get_base_url()
     except AttributeError:
       self.base_url = None
+
+  def get_default_driver(self):
+    """ Returns a default driver instance for this session (webkit_server). """
+    return dryscrape.driver.webkit.Driver()
 
   # implement proxy pattern
   def __getattr__(self, attr):

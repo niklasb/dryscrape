@@ -1,6 +1,5 @@
 import time
-from dryscrape               import Session
-from dryscrape.driver.webkit import Driver
+import dryscrape
 
 #==========================================
 # Setup
@@ -10,8 +9,7 @@ email    = 'YOUR_USERNAME_HERE@gmail.com'
 password = 'YOUR_PASSWORD_HERE'
 
 # set up a web scraping session
-sess = Session(driver   = Driver(),
-               base_url = 'https://mail.google.com/')
+sess = dryscrape.Session(base_url = 'https://mail.google.com/')
 
 # there are some failing HTTP requests, so we need to enter
 # a more error-resistant mode (like real browsers do)
