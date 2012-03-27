@@ -26,6 +26,14 @@ class SelectionMixin(object):
     expression or ``None`` """
     return self._first_or_none(self.xpath(xpath))
 
+  def parent(self):
+    """ Returns the parent node. """
+    return self.at_xpath('..')
+
+  def children(self):
+    """ Returns the child nodes. """
+    return self.xpath('*')
+
   def form(self):
     """ Returns the form wherein this node is contained
     or ``None`` """
