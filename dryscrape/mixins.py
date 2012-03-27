@@ -7,23 +7,21 @@ from lxml.cssselect import css_to_xpath
 import lxml.html
 
 class SelectionMixin(object):
-  """ Mixin that adds different methods of node selection
-  to an object that provides an ``xpath`` method returning a collection
-  of matches """
+  """ Mixin that adds different methods of node selection to an object that
+  provides an ``xpath`` method returning a collection of matches. """
 
   def css(self, css):
-    """ Returns all nodes matching the given CSSv3
-    expression """
+    """ Returns all nodes matching the given CSSv3 expression. """
     return self.xpath(css_to_xpath(css))
 
   def at_css(self, css):
     """ Returns the first node matching the given CSSv3
-    expression or ``None`` """
+    expression or ``None``. """
     return self._first_or_none(self.css(css))
 
   def at_xpath(self, xpath):
-    """ Returns the first node matching the given XPath 2.0
-    expression or ``None`` """
+    """ Returns the first node matching the given XPath 2.0 expression or ``None``.
+    """
     return self._first_or_none(self.xpath(xpath))
 
   def parent(self):
@@ -35,8 +33,7 @@ class SelectionMixin(object):
     return self.xpath('*')
 
   def form(self):
-    """ Returns the form wherein this node is contained
-    or ``None`` """
+    """ Returns the form wherein this node is contained or ``None``. """
     return self.at_xpath("ancestor::form")
 
   def _first_or_none(self, list):
@@ -44,8 +41,8 @@ class SelectionMixin(object):
 
 
 class AttributeMixin(object):
-  """ Mixin that adds ``[]`` access syntax sugar to an object that supports
-  a ``set_attr`` and ``get_attr`` method. """
+  """ Mixin that adds ``[]`` access syntax sugar to an object that supports a
+  ``set_attr`` and ``get_attr`` method. """
 
   def __getitem__(self, attr):
     """ Syntax sugar for accessing this node's attributes """
@@ -62,8 +59,8 @@ class HtmlParsingMixin(object):
 
   def document(self):
     """ Parses the HTML returned by ``body`` and returns it as an lxml.html
-    document. If the driver supports live DOM manipulation (like webkit_server does),
-    changes performed on the returned document will not take effect. """
+    document. If the driver supports live DOM manipulation (like webkit_server
+    does), changes performed on the returned document will not take effect. """
     return lxml.html.document_fromstring(self.body())
 
 
@@ -75,8 +72,8 @@ DEFAULT_AT_TIMEOUT = 1
 class WaitTimeoutError(Exception):
   """ Raised when a wait times out """
 
-class DriverMixin(SelectionMixin, HtmlParsingMixin):
-  """ Mixin for a scraping driver """
+class WaitMixin(SelectionMixin):
+  """ Mixin that allows waiting for conditions or elements. """
 
   def wait_for(self,
                condition,
@@ -112,20 +109,19 @@ class DriverMixin(SelectionMixin, HtmlParsingMixin):
       return None
 
   def wait_while(self, condition, *args, **kw):
-    """ Wait while a condition holds """
-    return self.wait_for(lambda: not condition(),
-                         *args, **kw)
+    """ Wait while a condition holds. """
+    return self.wait_for(lambda: not condition(), *args, **kw)
 
   def at_css(self, css, timeout = DEFAULT_AT_TIMEOUT, **kw):
-    """ Returns the first node matching the given CSSv3
-    expression or ``None`` if a timeout occurs """
-    return self.wait_for_safe(lambda: super(DriverMixin, self).at_css(css),
+    """ Returns the first node matching the given CSSv3 expression or ``None``
+    if a timeout occurs. """
+    return self.wait_for_safe(lambda: super(WaitMixin, self).at_css(css),
                               timeout = timeout,
                               **kw)
 
   def at_xpath(self, xpath, timeout = DEFAULT_AT_TIMEOUT, **kw):
-    """ Returns the first node matching the given XPath 2.0
-    expression or ``None`` if a timeout occurs """
-    return self.wait_for_safe(lambda: super(DriverMixin, self).at_xpath(xpath),
+    """ Returns the first node matching the given XPath 2.0 expression or ``None``
+    if a timeout occurs. """
+    return self.wait_for_safe(lambda: super(WaitMixin, self).at_xpath(xpath),
                               timeout = timeout,
                               **kw)

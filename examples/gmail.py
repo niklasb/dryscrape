@@ -50,11 +50,11 @@ body    = sess.at_xpath('//*[@name="body"]')
 
 to.set(email)
 subject.set("Note to self")
-body.set("Don't eat too much bananas")
+body.set("Remember to try dryscrape!")
 
 # send the mail
 
-# seems like we need to wait a bit before clicking... 
+# seems like we need to wait a bit before clicking...
 # Blame Google for this ;)
 time.sleep(3)
 send = sess.at_xpath('//*[normalize-space(text()) = "Send"]')
