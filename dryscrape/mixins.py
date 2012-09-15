@@ -3,7 +3,7 @@ Mixins for use in dryscrape drivers.
 """
 
 import time
-from lxml.cssselect import css_to_xpath
+from cssselect import GenericTranslator
 import lxml.html
 
 class SelectionMixin(object):
@@ -12,7 +12,7 @@ class SelectionMixin(object):
 
   def css(self, css):
     """ Returns all nodes matching the given CSSv3 expression. """
-    return self.xpath(css_to_xpath(css))
+    return self.xpath(GenericTranslator().css_to_xpath(css))
 
   def at_css(self, css):
     """ Returns the first node matching the given CSSv3
