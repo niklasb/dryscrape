@@ -1,3 +1,16 @@
+## Note: Update to 0.9
+
+I merged the upstream version of webkit-server, which fixes several
+issues with page loading. This has the nice side effect that 
+dryscrape is now somewhat more intelligent when it comes to waiting 
+for dynamic contents to be loaded.
+
+If you experience any regressions, please 
+[open an issue](https://github.com/niklasb/dryscrape/issues/new).
+
+Meanwhile you can always use the old version of webkit-server
+and dryscrape using the tag `v0.8`.
+
 # Overview
 
 **Author:** Niklas Baumstark
