@@ -5,15 +5,11 @@ import dryscrape
 # Setup
 #==========================================
 
-email    = 'YOUR_USERNAME_HERE@gmail.com'
+email    = 'YOUR_EMAIL_HERE'
 password = 'YOUR_PASSWORD_HERE'
 
 # set up a web scraping session
 sess = dryscrape.Session(base_url = 'https://mail.google.com/')
-
-# there are some failing HTTP requests, so we need to enter
-# a more error-resistant mode (like real browsers do)
-sess.set_error_tolerant(True)
 
 # we don't need images
 sess.set_attribute('auto_load_images', False)

@@ -1,3 +1,2 @@
 lxml
 git+git://github.com/niklasb/webkit-server.git
-cssselect
