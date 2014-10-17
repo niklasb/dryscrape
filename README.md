@@ -32,6 +32,19 @@ It is built on the shoulders of
 [webkit-server](https://github.com/niklasb/webkit-server). A big thanks goes 
 to thoughtbot, inc. for building this excellent piece of software!
 
+# Supported Platforms
+
+The library has been confirmed to work on the following platforms:
+
+* Mac OS X 10.9 Mavericks
+* Ubuntu Linux
+* Arch Linux
+
+Other unixoid systems should work just fine.
+
+Windows is not officially supported, although it should work
+just fine under [cygwin](https://www.cygwin.com/).
+
 # Installation, Usage, API Docs
 
 Documentation can be found at 
