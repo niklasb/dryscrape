@@ -11,6 +11,12 @@ If you experience any regressions, please
 Meanwhile you can always use the old version of webkit-server
 and dryscrape using the tag `v0.8`.
 
+# Changelog
+
+* 0.9.1: Changed semantics of the `headers` function in
+  a backwards-incompatible way: It now returns a list of (key, value)
+  pairs instead of a dictionary.
+
 # Overview
 
 **Author:** Niklas Baumstark
