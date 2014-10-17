@@ -66,3 +66,4 @@ Note that dryscrape is written for Python 2.7+, so make sure that you use both t
 .. _pip: http://pypi.python.org/pypi/pip
 .. _dryscrape: https://github.com/niklasb/dryscrape/
 .. _Homebrew: http://brew.sh/
+.. _easy_install: https://pypi.python.org/pypi/setuptools
