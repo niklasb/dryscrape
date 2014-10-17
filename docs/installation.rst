@@ -3,7 +3,7 @@
 Installation
 ============
 
-Prequirements
+Prerequisites
 -------------
 
 Before installing dryscrape_, you need to install some software it depends on:
@@ -12,13 +12,21 @@ Before installing dryscrape_, you need to install some software it depends on:
 * lxml_
 * pip_
 
-On Ubuntu you can do that with one command (the ``#`` indicates that you need root privileges for
-this):
+On Ubuntu you can do that with one command (the ``#`` indicates that you need
+root privileges for this):
 
 ::
 
   # apt-get install libqt4-dev libqtwebkit-dev qt4-qmake build-essential \
                     python-lxml python-pip
+
+On Mac OS X 10.9 (Mavericks), you can use Homebrew_ to install Qt and
+easy_install_ to install pip_:
+
+::
+
+  # brew install qt
+  # easy_install pip
 
 On other operating systems, you can use pip_ to install lxml (though you might
 have to install libxml and the Python headers first).
@@ -57,3 +65,4 @@ Note that dryscrape is written for Python 2.7+, so make sure that you use both t
 .. _webkit-server: https://github.com/niklasb/webkit-server/
 .. _pip: http://pypi.python.org/pypi/pip
 .. _dryscrape: https://github.com/niklasb/dryscrape/
+.. _Homebrew: http://brew.sh/
