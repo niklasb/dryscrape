@@ -31,8 +31,20 @@ easy_install_ to install pip_:
 On other operating systems, you can use pip_ to install lxml (though you might
 have to install libxml and the Python headers first).
 
-dryscrape
----------
+Installing dryscrape from PyPI
+-------------------------------
+
+This is as simple as a quick
+
+::
+
+  # pip install dryscrape
+
+You might have to specify the Python version. Note that as of now, dryscrape is
+Python 2.7 only.
+
+Installing dryscrape from Git
+-------------------------------
 
 First, get a copy of dryscrape_ using Git:
 
@@ -56,7 +68,7 @@ Afterwards, you can use the ``setup.py`` script included to install dryscrape:
 
   # python setup.py install
 
-Note that dryscrape is written for Python 2.7+, so make sure that you use both the
+Note that dryscrape is written for Python 2.7, so make sure that you use both the
 ``python`` and ``pip`` commands in the right version.
 
 .. _QT4: http://qt.nokia.com/
