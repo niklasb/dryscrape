@@ -8,5 +8,5 @@ setup(name='dryscrape',
       license='MIT',
       url='https://niklasb.github.com/dryscrape',
       packages=['dryscrape', 'dryscrape.driver'],
-      requires=['webkit_server', 'lxml'],
+      install_requires=['webkit_server', 'lxml'],
       )
