@@ -97,7 +97,7 @@ class WaitMixin(SelectionMixin):
       time.sleep(interval)
 
     # timeout occured!
-    raise WaitTimeoutError, "wait_for timed out"
+    raise WaitTimeoutError("wait_for timed out")
 
   def wait_for_safe(self, *args, **kw):
     """ Wait until a condition holds and return

@@ -15,6 +15,9 @@ to thoughtbot, inc. for building this excellent piece of software!
 
 # Changelog
 
+* 1.0: Added Python 3 support, small performance fixes, header names are now
+  properly normalized. Also added the function `dryscrape.start_xvfb()` to
+  easily start Xvfb.
 * 0.9.1: Changed semantics of the `headers` function in
   a backwards-incompatible way: It now returns a list of (key, value)
   pairs instead of a dictionary.
@@ -41,10 +44,8 @@ Quick installation instruction:
 
     # pip install dryscrape
 
-Note however that the library is Python 2.7 only as of yet.
-
 # Contact, Bugs, Contributions
 
-If you have any problems with this software, don't hesitate to open an    
-issue on [Github](https://github.com/niklasb/dryscrape) or open a pull 
+If you have any problems with this software, don't hesitate to open an
+issue on [Github](https://github.com/niklasb/dryscrape) or open a pull
 request or write a mail to **niklas baumstark at Gmail**.

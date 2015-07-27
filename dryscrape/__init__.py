@@ -1,2 +1,3 @@
 from .session import *
-import driver
+from .xvfb import *
+import dryscrape.driver

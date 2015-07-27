@@ -1,5 +1,8 @@
 import dryscrape
 
+# make sure you have xvfb installed
+dryscrape.start_xvfb()
+
 search_term = 'dryscrape'
 
 # set up a web scraping session
@@ -16,8 +19,8 @@ q.form().submit()
 
 # extract all links
 for link in sess.xpath('//a[@href]'):
-  print link['href']
+  print(link['href'])
 
 # save a screenshot of the web page
 sess.render('google.png')
-print "Screenshot written to 'google.png'"
+print("Screenshot written to 'google.png'")

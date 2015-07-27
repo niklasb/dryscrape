@@ -1,5 +1,9 @@
-import urlparse
 from dryscrape.driver.webkit import Driver as DefaultDriver
+try:
+  import urlparse
+except ImportError:
+  import urllib
+  urlparse = urllib.parse
 
 class Session(object):
   """ A web scraping session based on a driver instance. Implements the proxy
