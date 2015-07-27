@@ -70,7 +70,7 @@ Afterwards, you can use the ``setup.py`` script included to install dryscrape:
 
   # python setup.py install
 
-.. _Qt: http://qt.nokia.com/
+.. _Qt: http://www.qt.io
 .. _QtWebKit: http://doc.qt.io/qt-5/qtwebkit-index.html
 .. _lxml: http://lxml.de/
 .. _webkit-server: https://github.com/niklasb/webkit-server/
