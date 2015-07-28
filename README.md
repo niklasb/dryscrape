@@ -40,8 +40,9 @@ with [cygwin](https://www.cygwin.com/).
 Documentation can be found at 
 [dryscrape's ReadTheDocs page](http://readthedocs.org/docs/dryscrape/).
 
-Quick installation instruction:
+Quick installation instruction for Ubuntu:
 
+    # apt-get install qt5-default libqt5webkit5-dev build-essential python-lxml python-pip xvfb
     # pip install dryscrape
 
 # Contact, Bugs, Contributions
