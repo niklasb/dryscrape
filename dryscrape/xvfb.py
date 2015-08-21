@@ -14,6 +14,4 @@ def start_xvfb():
 
 def stop_xvfb():
   global _xvfb
-  if "DISPLAY" in os.environ:
-    _xvfb.stop()
-    del os.environ["DISPLAY"]
+  _xvfb.stop()
