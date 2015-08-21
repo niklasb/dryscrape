@@ -1,0 +1,3 @@
+webkit_server>=1.0
+lxml
+xvfbwrapper
