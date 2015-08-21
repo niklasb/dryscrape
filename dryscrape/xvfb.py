@@ -1,10 +1,19 @@
 import atexit
 import os
 
+_xvfb = None
+
 def start_xvfb():
   from xvfbwrapper import Xvfb
+  global _xvfb
   if "DISPLAY" in os.environ:
     del os.environ["DISPLAY"]
-  xvfb = Xvfb()
-  xvfb.start()
-  atexit.register(xvfb.stop)
+  _xvfb = Xvfb()
+  _xvfb.start()
+  atexit.register(_xvfb.stop)
+
+def stop_xvfb():
+  global _xvfb
+  if "DISPLAY" in os.environ:
+    _xvfb.stop()
+    del os.environ["DISPLAY"]
