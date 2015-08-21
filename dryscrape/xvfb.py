@@ -11,6 +11,6 @@ def start_xvfb():
   atexit.register(xvfb.stop)
 
 def stop_xvfb():
-	if "DISPLAY" in os.environ:
-		xvfb.stop()
-		del os.environ["DISPLAY"]
+  if "DISPLAY" in os.environ:
+    xvfb.stop()
+    del os.environ["DISPLAY"]
