@@ -1,0 +1,17 @@
+Source: dryscrape
+Maintainer: Niklas Baumstark <niklas.baumstark@gmail.com>
+Section: python
+Priority: optional
+Build-Depends: python-all (>= 2.6.6-3), debhelper (>= 7)
+Standards-Version: 3.9.1
+
+Package: python-dryscrape
+Architecture: all
+XB-Python-Version: ${python:Versions}
+Depends: ${misc:Depends}, ${python:Depends}, python-webkit-server, python-lxml, python-xvfbwrapper
+Provides: ${python:Provides}
+Description: a lightweight Javascript-aware, headless web scraping librar
+ dryscrape is a lightweight web scraping library for Python.
+ It uses a headless Webkit instance to evaluate Javascript on the visited pages.
+ This enables painless scraping of plain web pages as well 
+ as Javascript-heavy "Web 2.0" applications like Facebook.

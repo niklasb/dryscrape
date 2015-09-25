@@ -1,0 +1,8 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: dryscrape
+Source: https://github.com/niklasb/dryscrape
+
+Files: *
+Copyright: Copyright (c) 2012 Niklas Baumstark
+License: MIT
+ For details see http://opensource.org/licenses/MIT.
