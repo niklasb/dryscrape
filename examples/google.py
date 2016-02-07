@@ -1,7 +1,10 @@
 import dryscrape
+import sys
 
-# make sure you have xvfb installed
-dryscrape.start_xvfb()
+if 'linux' in sys.platform:
+    # start xvfb in case no X is running. Make sure xvfb 
+    # is installed, otherwise this won't work!
+    dryscrape.start_xvfb()
 
 search_term = 'dryscrape'
 
