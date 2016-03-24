@@ -35,6 +35,10 @@ Other unixoid systems should work just fine.
 Windows is not officially supported, although dryscrape should work
 with [cygwin](https://www.cygwin.com/).
 
+### A word about Qt 5.6
+
+The 5.6 version of Qt removes the Qt WebKit module in favor of the new module Qt WebEngine. So far webkit-server has not been ported to WebEngine (and likely won't be in the near future), so Qt <= 5.5 is a requirement.
+
 # Installation, Usage, API Docs
 
 Documentation can be found at 
