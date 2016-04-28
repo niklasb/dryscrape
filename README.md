@@ -42,7 +42,7 @@ The 5.6 version of Qt removes the Qt WebKit module in favor of the new module Qt
 # Installation, Usage, API Docs
 
 Documentation can be found at 
-[dryscrape's ReadTheDocs page](http://readthedocs.org/docs/dryscrape/).
+[dryscrape's ReadTheDocs page](http://dryscrape.readthedocs.io/).
 
 Quick installation instruction for Ubuntu:
 
