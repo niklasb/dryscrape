@@ -1,7 +1,7 @@
 from distutils.core import setup, Command
 
 setup(name='dryscrape',
-      version='1.0',
+      version='1.0.1',
       description='a lightweight Javascript-aware, headless web scraping library for Python',
       author='Niklas Baumstark',
       author_email='niklas.baumstark@gmail.com',
