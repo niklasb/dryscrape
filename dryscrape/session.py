@@ -1,4 +1,6 @@
 from dryscrape.driver.webkit import Driver as DefaultDriver
+
+from itertools import chain
 try:
   import urlparse
 except ImportError:
@@ -26,6 +28,11 @@ class Session(object):
   def __getattr__(self, attr):
     """ Pass unresolved method calls to underlying driver. """
     return getattr(self.driver, attr)
+
+  def __dir__(self):
+    """Allow for `dir` to detect proxied methods from `Driver`."""
+    dir_chain = chain(dir(type(self)), dir(self.driver))
+    return list(set(dir_chain))
 
   def visit(self, url):
     """ Passes through the URL to the driver after completing it using the
